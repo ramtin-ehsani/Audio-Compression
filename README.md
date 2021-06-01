@@ -1,6 +1,6 @@
 # Audio Compression
 
-The final project of Data Communications course Fall 2021.
+The final project of Data Communications course Spring 2021.
 
 ## Overview
 This project is about audio compression using `MATLAB` which consists of 2 phases over the course.
