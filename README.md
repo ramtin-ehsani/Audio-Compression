@@ -9,4 +9,4 @@ This project is about audio compression using `MATLAB` which consists of 2 phase
 Doing research about audio compression methods and make a report with `LaTeX`
 
 ## Phase 2
-Implement the code with `Matlab`
+Implement the code with `MATLAB`
