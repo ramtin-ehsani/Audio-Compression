@@ -1,25 +1,28 @@
 %% Read File
 [x,fs]=audioread('in.wav');
-N=length(x);
+length=length(x);
 player=audioplayer(x,fs);
 player.play
 
 %% Orginal
-t=fft(x,N);
+t=fft(x,length);
 X=fftshift(t);
-f=-fs/2:fs/N:(fs/2-fs/N);
+f=-fs/2:fs/length:(fs/2-fs/length);
+
 figure(1)
 plot(f,abs(X))
-title('original audio signal')
-xlabel('freq(hq)');ylabel('magnitude');
+title('Original Audio Signal')
+xlabel('Freq(hq)');
+ylabel('Magnitude');
 
 %% Compress
-Xr=zeros(1,N);
-Xr((N/4)+1:(3*N/4))= X((N/4)+1:(3*N/4));   %%FORMULA
-%Xr((N*((70/100)/2))+1 : N*(1-(70/100)/2)) = X((N*((70/100)/2))+1 :  N*(1-(70/100)/2));
+Xr=zeros(1,length);
+Xr((length/4)+1:(3*length/4))= X((length/4)+1:(3*length/4));
+
 figure(2)
 plot(f, abs((Xr)));
 xr= real(ifft(fftshift(Xr)));
 audiowrite('Compressed.wav',xr,fs);
-title('50% compressed audio')
-xlabel('freq(hq)');ylabel('magnitude');
+title('Compressed Audio')
+xlabel('Freq(hq)');
+ylabel('Magnitude');
